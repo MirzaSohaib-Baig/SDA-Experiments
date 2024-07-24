@@ -1,0 +1,7 @@
+[
+    {"id": 300, "name": "SDA", "coursecredit": 2, "semester": 5}, 
+    {"id": 252, "name": "WE", "coursecredit": 2, "semester": 5}, 
+    {"id": 299, "name": "PF", "coursecredit": 2, "semester": 5},
+    {"id": 100, "name": "OS", "coursecredit": 3, "semester": 5},
+    {"id": 191, "name": "DCN", "coursecredit": 3, "semester": 5}
+]

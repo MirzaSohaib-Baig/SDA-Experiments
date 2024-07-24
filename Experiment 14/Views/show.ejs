@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <title>Main Page</title>
+  </head>
+  <body style="background-color: #36393e; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+      <script>
+      $(document).ready(function(){
+        $("#myinput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#mytable td").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+      </script>
+
+    <h1 style=" text-align: center; color: #ffffff;">Blog Details!</h1><br><br>
+    <div class="container" >
+      <nav class="navbar navbar-light" style="float: right; background-color: #36393e;">
+        <div class="container-fluid" style="background-color: #36393e;">
+          <form class="d-flex">
+            <input class="form-control me-2" id="myinput" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+        <a href="/addnew" type="submit" class="btn btn-success" style="margin-bottom: 30px; ">ADD New Blog</a>
+        <a href="/addauthor" type="submit" class="btn btn-success" style="margin-bottom: 30px; ">ADD Author</a>
+
+
+        <table class="table table-dark table-hover" method="get" action="/" >
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Blog category</th>
+                <th scope="col">Author</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+                <%for (let d of pdata) {%>
+              <tr>
+                <td id="mytable"><%=d.title %></td>
+                <td><%=d.content %></td>
+                <td><%=d.b_category %></td>
+                <td><%=d.authorName %></td>
+                <td>
+                  <a style="font-size: 12px;" class="btn btn-primary" href="/edit/<%=d._id%>/editform">Edit</a>
+                  <a style="font-size: 12px;"  href="/delete/<%=d._id%>" class="btn btn-danger">Delete</a>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    
+
+  </body>
+</html>
